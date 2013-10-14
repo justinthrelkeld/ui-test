@@ -1,3 +1,19 @@
+// Resources & Libraries
+@import bourbon/bourbon.scss
+@import grid-settings.sass
+@import neat/neat.scss
+
+
+// Global styles
+@import base.sass
+
+// Basic layout styles
+@import layout.sass 
+
+// Modules (include each module here instead of separating into a separate `modules.sass` file, to make it easier to see what modules are being included and in what order)
+@import module/lightbox.sass
+
+// Styles
 body
   font-family: Georgia
   padding: 0
@@ -7,7 +23,7 @@ body
   width: 1000px
   margin: 0 auto
 
-.read-more-container
+.read-more_container
   margin-top: 30px
   height: 400px
   overflow: hidden
@@ -22,7 +38,6 @@ ul
   list-style: none
 
 // Logo
-
 .logo
   position: absolute
   left: 50%
@@ -118,22 +133,6 @@ h3
         padding: 0 15px
         &:hover
           text-decoration: underline
-
-
-// Lightbox
-.lightbox
-  background-color: rgba(0,0,0,0.7)
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  .lightboxImage
-    position: absolute
-    left: 30%
-    top: 30%
-    border: 10px solid white
-  
 
 // Footer
 
