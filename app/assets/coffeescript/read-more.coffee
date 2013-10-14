@@ -1,24 +1,20 @@
 $ ->
 
   window.LP = (->
-
-  # Module: Read More
-
+    # Module: Read More
     initialHeight = 400
-
+    if $('.read-more_container').height() > initialHeight
+      $('.read-more_container').removeClass('is-expanded')
+      $('.read-more_container').addClass('is-collapsed')
+      $('.read-more_container').after('<a class="button" href="#">Read More</a>')
+    else
+      $('.read-more_container').addClass('is-expanded')
+      $('.read-more_container').removeClass('is-collapsed')
+  
     return {
-
-      open : $('.button').on 'click', ->
-        if $('.read-more_container').height() > 400
-          $('.read-more_container').animate(
-            height: initialHeight
-          , 500)
-          $(this).text('Read more')
-        else
-          $('.read-more_container').animate(
-            height: 1600
-          , 500)
-          $(this).text('Read less')
+      readmore : $('.button').on 'click', ->
+        $('.read-more_container').toggleClass('is-expanded')
+        $('.read-more_container').toggleClass('is-collapsed')
         false
     }
 
