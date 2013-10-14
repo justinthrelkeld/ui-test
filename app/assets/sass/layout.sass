@@ -1,0 +1,51 @@
+body
+  padding: 0
+  margin: 0
+
+nav
+  font-family: arial
+  ul
+    margin: 0
+    padding: 0
+
+#navigation
+  text-align: center
+  > ul
+    @include fill-parent
+    height: 60px
+    li
+      display: inline
+      a
+        line-height: 60px
+        padding: 0 15px
+    &.core-navigation
+      li
+        &:nth-child(3)
+          margin-right: 150px
+
+.container
+  @include span-columns( 10 of 14 )
+  float: none
+  margin: 0 auto
+  overflow: hidden
+  &:last-child
+    margin: 0 auto
+
+footer
+  @include fill-parent
+  overflow: hidden
+  margin-top: 50px
+  padding-top: 20px
+  nav
+    @include span-columns(2.5 of 10)
+    margin-bottom: 20px
+  ul
+    margin: 0
+    padding: 0
+    li
+      margin: 0
+      display: block
+      padding: 10px 0
+
+
+
