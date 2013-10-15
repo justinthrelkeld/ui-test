@@ -15,7 +15,7 @@ $ ->
             $(this).removeClass('is-active')
           $('body').on 'keyup', (e) ->
             if e.keyCode is 13 or e.keyCode is 27
-              $(image).remove()
+              $(lightbox_image).remove()
               $('.lightbox-ground').removeClass('is-active')
     }
 
