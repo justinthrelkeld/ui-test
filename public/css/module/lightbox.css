@@ -1,0 +1,16 @@
+.lightbox-ground.is-active {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.lightbox-ground.is-active .lightbox-image {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  top: 20%;
+  border: 10px solid white;
+  max-width: 100%;
+}

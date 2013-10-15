@@ -5,30 +5,18 @@
 
       initialHeight = 400;
       return {
-        open: $('.button').on('click', function() {
-          if ($('.read-more-container').height() > 400) {
-            $('.read-more-container').animate({
-              height: initialHeight
-            }, 500);
-            $(this).text('Read more');
+        readmore_setup: $('.read-more_container').height() > initialHeight ? ($('.read-more_container').removeClass('is-expanded'), $('.read-more_container').addClass('is-collapsed'), $('.read-more_container').after('<a class="button read-more_button" href="#">Read More</a>')) : void 0,
+        readmore_open: $('.read-more_button').on('click', function() {
+          if ($('.read-more_container').hasClass('is-expanded') === true) {
+            $('.read-more_container').addClass('is-collapsed');
+            $('.read-more_container').removeClass('is-expanded');
+            $(this).text('Read More');
           } else {
-            $('.read-more-container').animate({
-              height: 1600
-            }, 500);
-            $(this).text('Read less');
+            $('.read-more_container').addClass('is-expanded');
+            $('.read-more_container').removeClass('is-collapsed');
+            $(this).text('Read Less');
           }
           return false;
-        }),
-        lightbox: $('.images-container').on('click', 'img', function() {
-          var image, lightboxContainer;
-
-          image = $('<img/>').addClass('lightboxImage').attr('src', $(this).attr('src'));
-          lightboxContainer = $('<div/>').addClass('lightbox').append(image);
-          return $('body').append(lightboxContainer).on('keyup', function(e) {
-            if (e.keyCode === 13 || e.keyCode === 27) {
-              return $('.lightbox').remove();
-            }
-          });
         })
       };
     })();

@@ -1,15 +1,14 @@
 - core_navigation = ['Home', 'Destinations', 'Shop', 'Hotels', 'Flights', 'Contact']
 - sub_navigation = ['Images', 'Video', 'Games']
 
-%nav.navigation
-  %ul
+%nav#navigation
+  %ul.core-navigation
     - core_navigation.each do |item|
       %li
         %a{:href => '#'}
           = item
 
-.sub-navigation
-  %ul
+  %ul.sub-navigation
     - sub_navigation.each do |item|
       %li
         %a{:href => '#'}

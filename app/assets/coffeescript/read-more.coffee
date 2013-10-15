@@ -1,33 +1,25 @@
 $ ->
 
   window.LP = (->
-
+    # Module: Read More
     initialHeight = 400
-
+  
     return {
+      readmore_setup: if $('.read-more_container').height() > initialHeight
+          $('.read-more_container').removeClass('is-expanded')
+          $('.read-more_container').addClass('is-collapsed')
+          $('.read-more_container').after('<a class="button read-more_button" href="#">Read More</a>')
+      readmore_open : $('.read-more_button').on 'click', ->
+        if $('.read-more_container').hasClass('is-expanded') is true
+          $('.read-more_container').addClass('is-collapsed')
+          $('.read-more_container').removeClass('is-expanded')
+          $(this).text('Read More')
 
-      open : $('.button').on 'click', ->
-        if $('.read-more-container').height() > 400
-          $('.read-more-container').animate(
-            height: initialHeight
-          , 500)
-          $(this).text('Read more')
         else
-          $('.read-more-container').animate(
-            height: 1600
-          , 500)
-          $(this).text('Read less')
+          $('.read-more_container').addClass('is-expanded')
+          $('.read-more_container').removeClass('is-collapsed')
+          $(this).text('Read Less')
         false
-
-
-      lightbox : $('.images-container').on 'click', 'img', ->
-        image = $('<img/>').addClass('lightboxImage').attr('src', $(this).attr('src'))
-        lightboxContainer = $('<div/>').addClass('lightbox').append(image)
-
-        $('body').append(lightboxContainer).on 'keyup', (e) ->
-          if e.keyCode is 13 or e.keyCode is 27
-            $('.lightbox').remove()
-
     }
 
   )()
